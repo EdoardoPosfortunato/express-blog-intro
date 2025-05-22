@@ -2,6 +2,7 @@
 
 import express from "express";
 import fs from "fs";
+import { contaOggetti } from "./functions.js";
 
 // console.log(express);
 
@@ -17,12 +18,16 @@ app.get('/', (req, res) => {
     res.send('server del mio blog');
 })// questa parte è quello che rstituisce quando si interroga
 
-app.get('/bacheca', (req, res) => {
-
     const postsJSON = fs.readFileSync("./data/posts.json")
 
-    const onlyPosts = JSON.parse(postsJSON);         
+    const onlyPosts = JSON.parse(postsJSON);  
 
+    console.log(onlyPosts)
+    
+    const numeroDiPost = contaOggetti(onlyPosts)
+
+app.get('/bacheca', (req, res) => {
+    
     /*const posts = [
         {
             titolo: "I grandi classici della letteratura",
@@ -58,10 +63,10 @@ app.get('/bacheca', (req, res) => {
 
     const posts = {
         titolo: "BLOG SUI LIBRI",
-        post: onlyPosts
+        post: onlyPosts,
+        'numero di post': parseInt(numeroDiPost)
 
     }
-
 
     res.send(posts)
 
