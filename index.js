@@ -1,6 +1,7 @@
 // console.log("ciao mondo")
 
 import express from "express";
+import fs from "fs";
 
 // console.log(express);
 
@@ -17,7 +18,12 @@ app.get('/', (req, res) => {
 })// questa parte è quello che rstituisce quando si interroga
 
 app.get('/bacheca', (req, res) => {
-    const posts = [
+
+    const postsJSON = fs.readFileSync("./data/posts.json")
+
+    const onlyPosts = JSON.parse(postsJSON);         
+
+    /*const posts = [
         {
             titolo: "I grandi classici della letteratura",
             contenuto: "Una panoramica sui capolavori della letteratura mondiale, dai tempi antichi ai giorni nostri.",
@@ -48,7 +54,14 @@ app.get('/bacheca', (req, res) => {
             immagine: "img/img5.jpg",
             tags: ["romanzi", "amore", "emozioni", "classici"]
         }
-    ];
+    ]; */
+
+    const posts = {
+        titolo: "BLOG SUI LIBRI",
+        post: onlyPosts
+
+    }
+
 
     res.send(posts)
 
