@@ -1,0 +1,23 @@
+{
+  "name": "express-blog-intro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdoardoPosfortunato/express-blog-intro.git"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdoardoPosfortunato/express-blog-intro/issues"
+  },
+  "homepage": "https://github.com/EdoardoPosfortunato/express-blog-intro#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
